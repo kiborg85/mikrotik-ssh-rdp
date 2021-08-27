@@ -29,8 +29,8 @@ $data = @(
 '/ip firewall filter add action=drop chain=forward src-address-list=RDP_brut21'
 )
 
-$login=api
-$pass=ipa
+$login='api'
+$pass='ipa'
 $gw=(Get-WmiObject -Class Win32_IP4RouteTable | where { $_.destination -eq '0.0.0.0' -and $_.mask -eq '0.0.0.0'} | Sort-Object metric1 | select nexthop).nexthop
 foreach ($d in $data) {
     Write-Host $i
